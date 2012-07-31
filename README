@@ -26,13 +26,14 @@ How to use it:
    this will be a "live" working copy so you don't need to copy files every time
    you make a change; you can just symlink the directory if you're hosting from
    your development machine, or you can use lsyncd to synchronize your source
-   directory with a remote server.
+   directory with a remote server. You can also point to "file:///sdcard/..."
+   if you want to pull the scripts locally from your phone.
 
-   For example, I added the following to /etc/rc.local:
+   If using lsyncd, you can add something like this to /etc/rc.local:
    lsyncd -rsync ~/mozilla/inbound/mobile/android/chrome/content/ people:/home/bnicholson/public_html/bootstrapped/content -delay 5
 
    You should end up with something like this on your server:
-   http://people.mozilla.com/~bnicholson/bootstrapper-src/remote/
+   http://people.mozilla.com/~bnicholson/bootstrapped/
 
 3) Download the extension: http://people.mozilla.com/~bnicholson/bootstrapper.xpi
 
