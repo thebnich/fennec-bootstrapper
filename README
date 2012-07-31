@@ -1,5 +1,5 @@
 Fennec bootstrapper
-Source: http://people.mozilla.com/~bnicholson/bootstrapper.git
+Source: http://people.mozilla.com/~bnicholson/bootstrapper-src/
 XPI:    http://people.mozilla.com/~bnicholson/bootstrapper.xpi
 
 What it is:
@@ -19,7 +19,7 @@ When you install the extension, you provide a URL containing:
 
 
 How to use it:
-1) Copy http://people.mozilla.com/~bnicholson/bootstrapped/replace.json to
+1) Copy http://people.mozilla.com/~bnicholson/bootstrapper-src/remote/replace.json to
    somewhere on your server.
 
 2) In the same directory, put the content/ directory from your source. Ideally,
@@ -29,10 +29,10 @@ How to use it:
    directory with a remote server.
 
    For example, I added the following to /etc/rc.local:
-   lsyncd -rsync ~/mozilla/inbound/mobile/android/chrome/content/ people:/home/bnicholson/public_html/content -delay 5
+   lsyncd -rsync ~/mozilla/inbound/mobile/android/chrome/content/ people:/home/bnicholson/public_html/bootstrapped/content -delay 5
 
    You should end up with something like this on your server:
-   http://people.mozilla.com/~bnicholson/bootstrapped/
+   http://people.mozilla.com/~bnicholson/bootstrapper-src/remote/
 
 3) Download the extension: http://people.mozilla.com/~bnicholson/bootstrapper.xpi
 
