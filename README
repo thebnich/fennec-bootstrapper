@@ -1,4 +1,6 @@
 Fennec bootstrapper
+Source: http://people.mozilla.com/~bnicholson/bootstrapper.git
+XPI:    http://people.mozilla.com/~bnicholson/bootstrapper.xpi
 
 What it is:
 This extension allows you to dynamically load chrome code in
