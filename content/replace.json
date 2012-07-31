@@ -1,0 +1,23 @@
+[
+  {
+    "searchValue": "^(let|var) ([^ ]+)",
+    "newValue":    "window.$2"
+  },
+  {
+    "searchValue": "^#(ifdef|endif).*$",
+    "newValue":    ""
+  },
+  {
+    "searchValue": "^#expand",
+    "newValue":    ""
+  },
+  {
+    "searchValue": "defineLazyGetter\\(window",
+    "newValue":    "defineLazyGetter(__this__"
+  },
+  {
+    "searchValue": "defineLazyServiceGetter\\(window",
+    "newValue":    "defineLazyServiceGetter(__this__"
+  }
+
+]
