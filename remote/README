@@ -1,0 +1,18 @@
+Fennec bootstrapper
+
+What it is:
+This extension allows you to dynamically load chrome code in
+mobile/android/chrome/content/ from a remote location. This means you don't
+need to rebuild to try your changes.
+
+How it works:
+When you install the extension, you provide a URL containing:
+  * A content/ directory; this can be pulled directly from your
+    mobile/android/chrome source directory.
+  * A replace.json file; this contains regex replacements used when the
+    bootstrapped scripts are executed. These remove preprocessing directives,
+    replace chrome:// URLs, and do other replacements necessary for running
+    these scripts without having to modify them directly.
+
+How to use it:
+1) Download the extension: http://people.mozilla.com/~bnicholson/bootstrapper.xpi

@@ -1,0 +1,37 @@
+[
+  {
+    "comment":     "The sandbox global object is not the window itself, so all global variables need to be manually attached to the window.",
+    "searchValue": "^(let|var) ([^ ]+)",
+    "newValue":    "window.$2"
+  },
+  {
+    "comment":     "Remove preprocessing directives.",
+    "searchValue": "^#(ifdef|endif).*$",
+    "newValue":    ""
+  },
+  {
+    "comment":     "Remove preprocessing directives.",
+    "searchValue": "^#expand",
+    "newValue":    ""
+  },
+  {
+    "comment":     "Replace chrome URIs with remote URLs to be bootstrapped. The string '%path%' will be replaced with the bootstrap path.",
+    "searchValue": "chrome://browser/content/",
+    "newValue":    "%path%content/"
+  },
+  {
+    "comment":     "Replace loadSubScript() with a remote subscript loader.",
+    "searchValue": "Services\\.scriptloader\\.loadSubScript\\(",
+    "newValue":    "__loadRemoteSubScript__(name, "
+  },
+  {
+    "comment":     "The window is not the global object, so getters need to be attached to the sandbox.",
+    "searchValue": "defineLazyGetter\\(window",
+    "newValue":    "defineLazyGetter(__this__"
+  },
+  {
+    "comment":     "The window is not the global object, so getters need to be attached to the sandbox.",
+    "searchValue": "defineLazyServiceGetter\\(window",
+    "newValue":    "defineLazyServiceGetter(__this__"
+  }
+]
