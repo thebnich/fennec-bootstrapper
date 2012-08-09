@@ -31,17 +31,21 @@ function get(params) {
   } catch (e) {}
 
   if (xhr.readyState == 4 && (xhr.status == 200 || (xhr.status == 0 && xhr.responseText))) {
-    if (params.type == "xml")
+    if (params.type == "xml") {
       params.success(xhr.responseXML);
-    else if (params.type == "text")
+    } else if (params.type == "text") {
       params.success(xhr.responseText);
-    else if (params.type == "json")
+    } else if (params.type == "json") {
+      let json;
       try {
-        params.success(JSON.parse(xhr.responseText));
+        json = JSON.parse(xhr.responseText);
       } catch (e) {
         dump("Bootstrapper: " + e);
         params.error && params.error();
       }
+      if (json)
+        params.success(json);
+    }
   } else {
     params.error && params.error();
   }
