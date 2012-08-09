@@ -66,7 +66,7 @@ function loadRemoteSubScript(name, url, scope) {
     type: "text",
     success: function (script) {
       let sandbox = getSandbox();
-      Cu.evalInSandbox(script, sandbox, "1.8", url);
+      Cu.evalInSandbox(script, sandbox, "1.8", url, 1);
       scope[name] = sandbox[name];
     }
   });
@@ -96,7 +96,7 @@ function loadReplaceValues(json) {
           let value = replace.newValue.replace("%path%", path);
           script = script.replace(regex, value);
         }
-        Cu.evalInSandbox(script, sandbox, "1.8", url);
+        Cu.evalInSandbox(script, sandbox, "1.8", url, 1);
       }
     });
   }
