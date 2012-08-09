@@ -1,23 +1,32 @@
 [
   {
+    "comment":     "The sandbox global object is not the window itself, so all global variables need to be manually attached to the window.",
     "searchValue": "^(let|var) ([^ ]+)",
-    "newValue":    "window.$2"
+    "newValue":    "$1 $2 = window.$2"
   },
   {
-    "searchValue": "^#(ifdef|endif).*$",
-    "newValue":    ""
+    "comment":     "The sandbox global object is not the window itself, so all global functions need to be manually attached to the window.",
+    "searchValue": "^function ([^ \\(]+)",
+    "newValue":    "let $1 = window.$1 = function"
   },
+  { 
+    "comment":     "Remove preprocessing directives.", 
+    "searchValue": "^#(ifdef|endif).*$", 
+    "newValue":    "" 
+  }, 
+  { 
+    "comment":     "Remove preprocessing directives.", 
+    "searchValue": "^#expand", 
+    "newValue":    "" 
+  }, 
   {
-    "searchValue": "^#expand",
-    "newValue":    ""
-  },
-  {
+    "comment":     "The window is not the global object, so getters need to be attached to the sandbox.",
     "searchValue": "defineLazyGetter\\(window",
     "newValue":    "defineLazyGetter(__this__"
   },
   {
+    "comment":     "The window is not the global object, so getters need to be attached to the sandbox.",
     "searchValue": "defineLazyServiceGetter\\(window",
     "newValue":    "defineLazyServiceGetter(__this__"
   }
-
 ]
