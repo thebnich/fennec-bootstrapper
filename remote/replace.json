@@ -2,7 +2,7 @@
   {
     "comment":     "The sandbox global object is not the window itself, so all global variables need to be manually attached to the window.",
     "searchValue": "^(let|var) ([^ ]+)",
-    "newValue":    "window.$2"
+    "newValue":    "$1 $2 = window.$2"
   },
   {
     "comment":     "The sandbox global object is not the window itself, so all global functions need to be manually attached to the window.",
