@@ -5,6 +5,7 @@
   <Description about="urn:mozilla:install-manifest">
     <em:id>bootstrapper@bnicholson.mozilla.com</em:id>
     <em:version>1.1</em:version>
+    <em:updateURL>https://people.mozilla.com/~bnicholson/bootstrapper-src/update.rdf</em:updateURL>
     <em:type>2</em:type>
     <em:bootstrap>true</em:bootstrap>
 
