@@ -1,5 +1,5 @@
 Fennec bootstrapper
-Source: http://people.mozilla.com/~bnicholson/bootstrapper-src/
+Source: https://github.com/thebnich/fennec-bootstrapper
 XPI:    http://people.mozilla.com/~bnicholson/bootstrapper.xpi
 
 What it is:
@@ -19,18 +19,17 @@ When you install the extension, you provide a URL containing:
 
 
 How to use it:
-1) Copy http://people.mozilla.com/~bnicholson/bootstrapper-src/remote/replace.json to
-   somewhere on your server.
+1) Copy the contents of remote/ to somewhere on your server.
 
-2) In the same directory, put the content/ directory from your source. Ideally,
-   this will be a "live" working copy so you don't need to copy files every time
-   you make a change; you can just symlink the directory if you're hosting from
-   your development machine, or you can use lsyncd to synchronize your source
-   directory with a remote server. You can also point to "file:///sdcard/..."
-   if you want to pull the scripts locally from your phone.
+2) Replace the content/ directory with the content/ directory from your source.
+   Ideally, this will be a "live" working copy so you don't need to copy files
+   every time you make a change; you can just symlink the directory if you're
+   hosting from your development machine, or you can use lsyncd to synchronize
+   your source directory with a remote server. You can also point to
+   "file:///sdcard/..." if you want to pull the scripts locally from your phone.
 
    If using lsyncd, you can add something like this to /etc/rc.local:
-   lsyncd -rsync ~/mozilla/inbound/mobile/android/chrome/content/ people:/home/bnicholson/public_html/bootstrapped/content -delay 5
+   lsyncd -rsync ~/mozilla/inbound/mobile/android/chrome/content/ people.mozilla.org:/home/bnicholson/public_html/bootstrapped/content -delay 5
 
    You should end up with something like this on your server:
    http://people.mozilla.com/~bnicholson/bootstrapped/
